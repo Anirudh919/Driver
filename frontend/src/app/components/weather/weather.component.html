@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <div class="card shadow p-4">
+
+    <h3 class="text-center mb-4">Weather Dashboard</h3>
+
+    <div class="input-group mb-3">
+      <input type="text"
+             class="form-control"
+             placeholder="Enter city name"
+             [(ngModel)]="city">
+
+      <button class="btn btn-primary"
+              (click)="fetchWeather()">
+        Get Weather
+      </button>
+    </div>
+
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+
+    <div *ngIf="weatherData" class="mt-4">
+      <h4>{{ weatherData.name }}</h4>
+      <p><strong>Temperature:</strong> {{ weatherData.main.temp }} °C</p>
+      <p><strong>Humidity:</strong> {{ weatherData.main.humidity }} %</p>
+      <p><strong>Condition:</strong> {{ weatherData.weather[0].description }}</p>
+    </div>
+
+  </div>
+</div>
